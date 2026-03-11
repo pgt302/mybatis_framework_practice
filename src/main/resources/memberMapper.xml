@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org..DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 상품정보에 관한 SQL --><!-- mapper태그 안에 작성 -->
+<!-- <mapper namespace = "dao.Mapper(인터페이스)" -->
+<mapper namespace = "dao.MemberMapper">
+
+<!-- 회원가입 -->
+<insert id="insertMember" parameterType="member">
+	INSERT INTO MEMBER(memberId, password, email, phone)
+	VALUES (#{memberId}, #{password}, #{email}, #{phone})
+</insert>
+
+<!-- 회원 본인 조회 -->
+<select id="selectOneMember" parameterType="string" resultType="member">
+	SELECT
+		memberId, password, email, phone
+	FROM
+		MEMBER
+	WHERE 
+		memberId = #{memberId}
+</select>
+
+
+<update id="updatePassword" parameterType ="member">
+	UPDATE MEMBER
+	SET password = #{password}
+	WHERE memberId = #{memberId}
+</update>
+
+<update id="updatePhone" parameterType="member">
+	UPDATE MEMBER
+	SET password = #{password}
+	WHERE memberId = #{memberId}
+</update>
+
+<update id="updateEmail" parameterType="member">
+	UPDATE MEMBER
+	SET password = #{email}
+	WHERE memberId = #{memberId}
+</update>
+
+<delete id="deleteMember" parameterType="String">
+	DELETE FROM MEMBER
+	WHERE memberId = #{memberId}
+</delete>
+
+</mapper>

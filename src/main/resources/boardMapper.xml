@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org..DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 상품정보에 관한 SQL --><!-- mapper태그 안에 작성 -->
+<!-- <mapper namespace = "dao.Mapper(인터페이스)" -->
+<mapper namespace = "dao.BoardMapper">
+<insert id="insertBoard" parameterType="board">
+	INSERT INTO BOARD(boardNum, memberId, title, content)
+	VALUES (nextval("board_seq"), #{memberId}, #{title}, #{content})
+</insert>
+<!-- 게시판 전체보기 -->
+<select id="selectAllBoard" resultType="hashmap">
+	SELECT 
+		b.boardNum AS boardNum, b.title AS title, b.content AS content, b.boardDate AS boardDate,
+		m.memberId AS memberId , m.phone AS phone
+	FROM board b INNER JOIN member m ON b.memberId = m.memberId
+	ORDER BY b.boardNum
+</select>
+<!-- 내 글목록만 보기 -->
+<select id="selectMyBoard" parameterType="string" resultType="board">
+	SELECT 
+		boardNum, memberId, title, content, boardDate
+	FROM BOARD
+	WHERE memberId = #{memberId}
+</select>
+
+</mapper>

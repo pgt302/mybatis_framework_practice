@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.home.project</groupId>
+	<artifactId>test2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>test2</name>
+	<packaging>jar</packaging>
+	<description>maven project test</description>
+	<!-- 디펜던시를 어떻게 넣는지 체크 -->
+	<dependencies>
+		<!-- mySql-->
+		<dependency>
+    		<groupId>mysql</groupId>
+    		<artifactId>mysql-connector-java</artifactId>
+    		<version>8.0.33</version>
+		</dependency>
+		
+		<!-- Mybatis-->
+		<dependency>
+  			<groupId>org.mybatis</groupId>
+ 			 <artifactId>mybatis</artifactId>
+ 			 <version>3.5.5</version>
+		</dependency>
+	</dependencies>
+
+
+</project>
