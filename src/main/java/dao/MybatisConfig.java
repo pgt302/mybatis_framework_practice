@@ -17,7 +17,7 @@ public class MybatisConfig {
 			
 			Reader reader = Resources.getResourceAsReader(resource);
 			
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader); // 여기서 인스턴스 생성
 			reader.close();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -25,6 +25,6 @@ public class MybatisConfig {
 	}
 	
 	public static SqlSessionFactory getSqlSessionFactory() {
-		return sqlSessionFactory;
+		return sqlSessionFactory; // 전역으로 생성된 인스턴스를 여기서 반환
 	} 
 }
