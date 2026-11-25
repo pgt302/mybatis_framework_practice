@@ -15,7 +15,7 @@ public class BoardVO {
 		this.title = title;
 		this.content = content;
 	}
-	//AllCostructor
+	//AllConstructor
 	public BoardVO(int boardNum, String memberId, String title, String content, String boardDate) {
 		this.boardNum = boardNum;
 		this.memberId = memberId;
